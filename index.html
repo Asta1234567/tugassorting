@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫧 Lab Gelembung Pintar: Bubble Sort</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bubbly-bg">
+        <div class="bubble dot1"></div>
+        <div class="bubble dot2"></div>
+        <div class="bubble dot3"></div>
+        <div class="bubble dot4"></div>
+    </div>
+
+    <div class="container">
+        <h1>🫧 Bubble Sort<br><span class="subtitle">Petualangan Gelembung Angka</span></h1>
+        
+        <div class="input-section">
+            <p>Masukkan angka ajaibmu (pisahkan dengan koma):</p>
+            <input type="text" id="userInput" placeholder="Contoh: 8, 3, 5, 2">
+            <button class="btn-set" onclick="inisialisasiData()">✨ Siapkan Gelembung!</button>
+        </div>
+
+        <div id="array-container" class="array-container">
+            <p class="placeholder-text">Ayo masukkan angka dan tekan tombol di atas! ↖️</p>
+        </div>
+
+        <div class="controls">
+            <p id="pesan-logika" class="instruction-box">Halo calon programmer! Masukkan angka dulu ya...</p>
+            <button id="nextBtn" class="btn-next" onclick="langkahBerikutnya()" disabled>
+                Tekan <b>Enter</b> / Klik Sini untuk Lanjut 🐾
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

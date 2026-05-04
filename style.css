@@ -1,0 +1,239 @@
+/* --- Reset & Font Imut --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif; /* Font tulisan biasa */
+    background-color: #e0f7fa; /* Biru muda sangat pucat */
+    color: #333;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive; /* Font judul bulet-bulet */
+    color: #ff6b6b;
+    text-shadow: 2px 2px 0px white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #4ecdc4;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* --- Container Utama (Awan) --- */
+.container {
+    max-width: 700px;
+    width: 90%;
+    margin: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px; /* Sangat bulat */
+    box-shadow: 0 15px 0px rgba(0,0,0,0.05); /* Bayangan kartun */
+    border: 5px solid #fff;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Area Input & Tombol --- */
+.input-section {
+    background: #fdf2f2;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.input-section p {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 3px solid #ffe0e0;
+    border-radius: 50px; /* Oval */
+    width: 250px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #ff6b6b;
+    background-color: #fff;
+}
+
+button {
+    font-family: 'Fredoka One', cursive;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:active {
+    transform: scale(0.95); /* Efek membal saat ditekan */
+}
+
+.btn-set {
+    padding: 12px 25px;
+    background-color: #4ecdc4;
+    color: white;
+    border-radius: 50px;
+    margin-left: 10px;
+    box-shadow: 0 4px 0px #3db3ab;
+}
+
+.btn-set:hover {
+    background-color: #3db3ab;
+}
+
+/* --- Visualisasi Gelembung Angka --- */
+.array-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Posisikan di tengah secara vertikal */
+    height: 180px;
+    margin: 30px 0;
+    gap: 15px;
+    background: #f0fff0;
+    border-radius: 20px;
+    border: 3px dashed #b2f2bb;
+    padding: 10px;
+}
+
+.placeholder-text {
+    color: #888;
+    font-style: italic;
+}
+
+/* Gaya Gelembung Angka */
+.bubble-item {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #fff, #a5d8ff); /* Efek 3D Gelembung */
+    color: #1971c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Bulat sempurna */
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1), inset 0 -5px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.5);
+    
+    /* Animasi goyang pelan continuous */
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Gelembung saat sedang dibandingkan (Warna Pink/Merah) */
+.bubble-item.active {
+    background: radial-gradient(circle at 30% 30%, #fff, #ffc9c9);
+    color: #c92a2a;
+    transform: scale(1.2) translateY(-10px);
+    border-color: #ff6b6b;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    z-index: 5;
+    animation: pulsing 0.5s ease-in-out infinite alternate; /* Detak cepat */
+}
+
+/* Gelembung yang sudah urut (Warna Hijau) */
+.bubble-item.sorted {
+    background: radial-gradient(circle at 30% 30%, #fff, #b2f2bb);
+    color: #2b8a3e;
+    border-color: #51cf66;
+    animation: none; /* Berhenti goyang */
+}
+
+/* --- Bagian Kontrol Bawah --- */
+.controls {
+    margin-top: 20px;
+}
+
+.instruction-box {
+    background-color: #fff4e6;
+    padding: 15px;
+    border-radius: 15px;
+    border-left: 5px solid #ff922b;
+    margin-bottom: 15px;
+    color: #d9480f;
+    font-weight: bold;
+    min-height: 50px;
+}
+
+.btn-next {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50px;
+    width: 100%;
+    box-shadow: 0 6px 0px #e05252;
+}
+
+.btn-next:hover:not(:disabled) {
+    background-color: #e05252;
+}
+
+.btn-next:disabled {
+    background-color: #fab1a0;
+    box-shadow: 0 6px 0px #e17055;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- ANIMASI-ANIMASI LUCU --- */
+
+/* 1. Goyang pelan (Floating) */
+@keyframes floating {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* 2. Berdenyut saat dibandingkan (Pulsing) */
+@keyframes pulsing {
+    from { transform: scale(1.2) translateY(-10px); }
+    to { transform: scale(1.28) translateY(-10px); }
+}
+
+/* 3. Gelembung Latar Belakang */
+.bubbly-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: rise 10s infinite ease-in;
+    bottom: -100px;
+}
+
+.dot1 { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
+.dot2 { width: 80px; height: 80px; left: 30%; animation-duration: 12s; animation-delay: 2s; }
+.dot3 { width: 20px; height: 20px; left: 70%; animation-duration: 6s; animation-delay: 1s; }
+.dot4 { width: 60px; height: 60px; left: 90%; animation-duration: 10s; animation-delay: 3s; }
+
+@keyframes rise {
+    0% { bottom: -100px; transform: translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { bottom: 110%; transform: translateX(-50px); }
+}
